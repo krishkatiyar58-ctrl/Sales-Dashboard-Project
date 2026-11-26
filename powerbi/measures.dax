@@ -1,0 +1,37 @@
+// Paste each measure into Power BI: Modeling > New measure.
+// Table names assume you loaded the 5 star-schema tables (FACT_SALES, DIM_DATE, DIM_PRODUCT, DIM_CUSTOMER, DIM_GEOGRAPHY).
+// If you loaded CSVs, column names are lower-case (e.g. fact_sales[sales]) - adjust the casing to match.
+
+Total Sales        = SUM ( FACT_SALES[SALES] )
+Total Profit       = SUM ( FACT_SALES[PROFIT] )
+Profit Margin %    = DIVIDE ( [Total Profit], [Total Sales] )          // format as percentage
+Total Orders       = DISTINCTCOUNT ( FACT_SALES[ORDER_ID] )
+Avg Order Value    = DIVIDE ( [Total Sales], [Total Orders] )
+Units Sold         = SUM ( FACT_SALES[QUANTITY] )
+Active Customers   = DISTINCTCOUNT ( FACT_SALES[CUSTOMER_ID] )
+
+// ---- Time intelligence (needs DIM_DATE marked as a date table on FULL_DATE)
+Sales LY           = CALCULATE ( [Total Sales], SAMEPERIODLASTYEAR ( DIM_DATE[FULL_DATE] ) )
+YoY Growth %       = DIVIDE ( [Total Sales] - [Sales LY], [Sales LY] )
+Sales PM           = CALCULATE ( [Total Sales], DATEADD ( DIM_DATE[FULL_DATE], -1, MONTH ) )
+MoM Growth %       = DIVIDE ( [Total Sales] - [Sales PM], [Sales PM] )
+YTD Sales          = TOTALYTD ( [Total Sales], DIM_DATE[FULL_DATE] )
+
+// ---- Ranking / share
+Sales % of Total   = DIVIDE ( [Total Sales], CALCULATE ( [Total Sales], ALL ( FACT_SALES ) ) )
+Product Rank       = RANKX ( ALL ( DIM_PRODUCT[PRODUCT_NAME] ), [Total Sales], , DESC, DENSE )
+
+// ---- Discount analysis
+Discounted Margin %   = DIVIDE ( CALCULATE ( [Total Profit], FACT_SALES[DISCOUNT] > 0 ),
+                                 CALCULATE ( [Total Sales],  FACT_SALES[DISCOUNT] > 0 ) )
+Undiscounted Margin % = DIVIDE ( CALCULATE ( [Total Profit], FACT_SALES[DISCOUNT] = 0 ),
+                                 CALCULATE ( [Total Sales],  FACT_SALES[DISCOUNT] = 0 ) )
+Loss-making Lines     = CALCULATE ( COUNTROWS ( FACT_SALES ), FACT_SALES[PROFIT] < 0 )
+
+// ---- Calculated column on FACT_SALES (for the discount-band bar chart)
+Discount Band =
+SWITCH ( TRUE (),
+    FACT_SALES[DISCOUNT] = 0,     "0 - None",
+    FACT_SALES[DISCOUNT] <= 0.10, "1 - 1-10%",
+    FACT_SALES[DISCOUNT] <= 0.20, "2 - 11-20%",
+    "3 - 21-30%" )

@@ -1,0 +1,7 @@
+{
+  "name": "Sales Dashboard Theme",
+  "dataColors": ["#1F4E79", "#E07B00", "#2E7D32", "#8C8C8C", "#B22222", "#5B9BD5"],
+  "background": "#FFFFFF",
+  "foreground": "#262626",
+  "tableAccent": "#1F4E79"
+}
