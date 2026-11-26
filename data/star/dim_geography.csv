@@ -1,0 +1,27 @@
+geo_id,city,state,region
+1,Raipur,Chhattisgarh,Central
+2,Bhopal,Madhya Pradesh,Central
+3,Indore,Madhya Pradesh,Central
+4,Patna,Bihar,East
+5,Bhubaneswar,Odisha,East
+6,Kolkata,West Bengal,East
+7,New Delhi,Delhi,North
+8,Faridabad,Haryana,North
+9,Gurugram,Haryana,North
+10,Amritsar,Punjab,North
+11,Ludhiana,Punjab,North
+12,Ghaziabad,Uttar Pradesh,North
+13,Lucknow,Uttar Pradesh,North
+14,Noida,Uttar Pradesh,North
+15,Bengaluru,Karnataka,South
+16,Mysuru,Karnataka,South
+17,Kochi,Kerala,South
+18,Chennai,Tamil Nadu,South
+19,Coimbatore,Tamil Nadu,South
+20,Hyderabad,Telangana,South
+21,Ahmedabad,Gujarat,West
+22,Surat,Gujarat,West
+23,Mumbai,Maharashtra,West
+24,Pune,Maharashtra,West
+25,Jaipur,Rajasthan,West
+26,Jodhpur,Rajasthan,West

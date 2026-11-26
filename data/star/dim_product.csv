@@ -1,0 +1,27 @@
+product_id,product_name,category,sub_category
+P1001,Aster Pro 14 Laptop,Technology,Laptops
+P1002,Nimbus Air 13 Laptop,Technology,Laptops
+P1003,Vertex Gaming 15,Technology,Laptops
+P1004,Zenith X5 Smartphone,Technology,Phones
+P1005,Orbit Lite Smartphone,Technology,Phones
+P1006,Pulse Max Smartphone,Technology,Phones
+P1007,Wireless Mouse W20,Technology,Accessories
+P1008,Mechanical Keyboard K8,Technology,Accessories
+P1009,USB-C Hub 7-in-1,Technology,Accessories
+P1010,Noise-Cancelling Headset,Technology,Accessories
+P1011,ErgoMesh Office Chair,Furniture,Chairs
+P1012,Executive Leather Chair,Furniture,Chairs
+P1013,Visitor Chair Set of 2,Furniture,Chairs
+P1014,Standing Desk 140cm,Furniture,Tables
+P1015,Compact Study Table,Furniture,Tables
+P1016,Conference Table 8-seat,Furniture,Tables
+P1017,Steel Filing Cabinet,Furniture,Storage
+P1018,Wooden Bookshelf 5-tier,Furniture,Storage
+P1019,A4 Copier Paper 500 sheets,Office Supplies,Paper
+P1020,Premium Notebook Pack of 5,Office Supplies,Paper
+P1021,Gel Pen Box of 50,Office Supplies,Stationery
+P1022,Desk Organizer Set,Office Supplies,Stationery
+P1023,Whiteboard Markers Pack,Office Supplies,Stationery
+P1024,LaserJet Mono Printer,Office Supplies,Printers & Ink
+P1025,Ink Cartridge Black,Office Supplies,Printers & Ink
+P1026,Ink Cartridge Colour,Office Supplies,Printers & Ink
